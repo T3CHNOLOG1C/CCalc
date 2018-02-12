@@ -14,3 +14,5 @@ Currently only compatible with *nix systems due to the use of the ``system("clea
 - Remove redundant code
 
 - Properly handle invalid menu entries
+
+- Windows Compatibility
