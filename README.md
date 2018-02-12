@@ -1,10 +1,16 @@
 # CCalc
 A simple calculator in C
 
-(currently only adds 2 numbers together)
+Currently does Addition, Subtraction, Multiplication and Division
+
+Uses a menu based system to choose an operation
+
+Currently only compatible with *nix systems due to the use of the ``system("clear");``
 
 ## To-Do
 
-- Menu to choose operation
+- Refactor Code
 
-- Multiplication, Division, and Subtraction Support
+- Remove redundant code
+
+- Properly handle invalid menu entries
