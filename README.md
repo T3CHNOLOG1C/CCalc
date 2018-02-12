@@ -9,9 +9,7 @@ Currently only compatible with *nix systems due to the use of the ``system("clea
 
 ## To-Do
 
-- Refactor Code
-
-- Remove redundant code
+- Split code into multiple files
 
 - Properly handle invalid menu entries
 

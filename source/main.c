@@ -1,100 +1,97 @@
 #include <stdio.h> 
-#define SCREEN_HEIGHT 15 
-#define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
-
+#include <stdlib.h>
+#include <unistd.h>
 #define clearscreen() system("clear")
 
 void addition(void)
 {
-	int a, b, c;	 //setup integers
+	int num1, num2, result;    //setup integers
 
-	printf("This function adds two numbers together.\n");
+	printf("\nThis function adds two numbers together.\n\n");
 	sleep(2);
 
-	printf("Input the first number:\n");
-	scanf("%d", &a);
+	printf("Input the first number: ");
+	scanf("%d", &num1);
 
-	printf("Input the second number:\n");
-	scanf("%d", &b);
+	printf("\nInput the second number: ");
+	scanf("%d", &num2);
 
-	c = a + b;
-	printf("%d + %d = %d\n\n", a, b, c);
+	result = num1 + num2;
+	printf("\n%d + %d = %d\n\n", num1, num2, result);
 
 	exit(1);
 }
 
 void subtraction(void)
 {
-	int a, b, c;	 //setup integers
+	int num1, num2, result;    //setup integers
 
-	printf("This function subtracts two numbers.\n");
+	printf("\nThis function subtracts two numbers.\n\n");
 	sleep(2);
 
-	printf("Input the first number:\n");
-	scanf("%d", &a);
+	printf("Input the first number: ");
+	scanf("%d", &num1);
 
-	printf("Input the second number:\n");
-	scanf("%d", &b);
+	printf("\nInput the second number: ");
+	scanf("%d", &num2);
 
-	c = a + b;
-	printf("%d - %d = %d\n\n", a, b, c);
+	result = num1 - num2;
+	printf("\n%d - %d = %d\n\n", num1, num2, result);
 
 	exit(1);
 }
 
 void multiplication(void)
 {
-	int a, b, c;	 //setup integers
+	int num1, num2, result;    //setup integers
 
-	printf("This function multiplies two numbers.\n");
+	printf("\nThis function multiplies two numbers.\n\n");
 	sleep(2);
 
-	printf("Input the first number:\n");
-	scanf("%d", &a);
+	printf("Input the first number: ");
+	scanf("%d", &num1);
 	
-	printf("Input the second number:\n");
-	scanf("%d", &b);
+	printf("\nInput the second number: ");
+	scanf("%d", &num2);
 	
-	c = a + b;
-	printf("%d * %d = %d\n\n", a, b, c);
+	result = num1 * num2;;
+	printf("\n%d * %d = %d\n\n", num1, num2, result);
 	
 	exit(1);
 }
            
 void division(void)
 {
-	int a, b, c;	 //setup integers
+	int dividend, divisor, quotient;    //setup integers
 
-	printf("This function divides two numbers.\n");
+	printf("\nThis function divides two numbers.\n\n");
 	sleep(2);
 
-	printf("Input the first number:\n");
-	scanf("%d", &a);
+	printf("Input the dividend: ");
+	scanf("%d", &dividend);
 
-	printf("Input the second number:\n");
-	scanf("%d", &b);
+	printf("\nInput the divisor: ");
+	scanf("%d", &divisor);
 
-	c = a / b;
-	printf("%d / %d = %d\n\n", a, b, c);
+        if (divisor < 1) {
+            printf("\nERROR: Can not divide by zero.\n\n");
+            exit(1);
+        }
+        else {
+
+	quotient = dividend / divisor;
+	printf("\n%d / %d = %d\n\n", dividend, divisor, quotient);
 
 	exit(1);
-}
-
-void clear(void)
-{
-  int i;
-  gotoxy(0, 0); 
-  for ( i = 0; i < SCREEN_HEIGHT; i++ )
-    putchar ( '\n' );
-    
-  return;
+        }
 }
 
 int main()
 {
-    int func;	 //setup integer for menu choice
+    int func;    //setup integer for menu choice
 
-    printf("---Main Menu---\n");
+    clearscreen();
+    printf("-----Main Menu-----\n");
     printf("Choose a function:\n");
     printf("1: Addition\n");
     printf("2: Subtraction\n");
@@ -106,28 +103,28 @@ int main()
     sleep(1);
     scanf("%d", &func);
     if(func > 5) {
-        printf("\nInvalid Choice, exiting...\n");
+        printf("\n\nInvalid Choice, exiting...\n\n");
         return 0;
     }
     else {
-        switch (func)
-	    {
+        switch (func) {
 	    case 1:
 		    clearscreen();
-            addition();
+                    addition();
 	    case 2:
 		    clearscreen();
-            subtraction();
+                    subtraction();
 	    case 3:
 		    clearscreen();
-            multiplication();
+                    multiplication();
 	    case 4:
 		    clearscreen();
-            division();
-        case 5:
-            exit(1);
-        default:
-            return 0;
-	   }
+                    division();
+            case 5:
+                    clearscreen();
+                    exit(1);
+            default:
+                    return 0;
+        }
     }
 }
